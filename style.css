@@ -1,0 +1,321 @@
+html, body {
+  position: fixed;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #444444;
+  overflow: hidden;
+}
+
+#logo {
+  position: absolute;
+  top: 25px;
+  width: 100vw;
+  text-align: center;
+}
+#logo img {
+  height: 50px;
+  box-shadow: inset 0px 0px 21px -1px rgba(0,0,0,0.4);
+  border-radius: 50px;
+  padding: 20px 40px;
+  transition: 0.3s;
+}
+
+#draw {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#hint {
+  position: relative;
+  width: 648px;
+  height: 648px;
+  border-radius: 10px;
+  margin-right: 50px;
+  overflow: hidden;
+  box-shadow: 0px 0px 21px -1px rgba(0,0,0,0.4);
+}
+#hint img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 648px;
+  height: 648px;
+  background-color: #ffffff;
+}
+#hint canvas {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 648px;
+  height: 648px;
+  cursor: none;
+}
+
+#circle {
+  pointer-events: none;
+}
+
+#colored {
+  position: relative;
+  width: 648px;
+  height: 648px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 21px -1px rgba(0,0,0,0.4);
+}
+#colored img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 648px;
+  height: 648px;
+  background-color: #ffffff;
+}
+
+#tools-wraper {
+  position: relative;
+  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+}
+#tools {
+  background-color: #757575;
+  border-radius: 0px 10px 10px 0px;
+  padding: 10px;
+  box-shadow: 0px 0px 21px -1px rgba(0,0,0,0.4);
+  color: #ffffff;
+}
+#tools button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #757575;
+  transition: 0.3s;
+  border: none;
+  color: #ffffff;
+  border: solid 1px #666666;
+}
+#tools button:hover {
+  background-color: #444444;
+  box-shadow: inset 0px 0px 21px -9px rgba(0,0,0,0.4);
+}
+#tools #picker {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+#tools #picker input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  opacity: 0;
+  cursor: pointer;
+}
+#tools #picker #color {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #000000;
+  pointer-events: none;
+  cursor: pointer;
+}
+#tools #eye-dropper {
+  margin-bottom: 10px;
+}
+
+.selected {
+  background-color: #444444 !important;
+  box-shadow: inset 0px 0px 21px -9px rgba(0,0,0,0.4);
+}
+
+#eraser {
+  margin-bottom: 10px;
+}
+
+#size_2 {
+  line-height: 50px;
+  font-size: 2px;
+}
+#size_5 {
+  line-height: 50px;
+  font-size: 5px;
+}
+#size_10 {
+  line-height: 50px;
+  font-size: 10px;
+}
+#size_15 {
+  line-height: 50px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#utils-wraper {
+  position: absolute;
+  top: calc(50% - 60px);
+  right: 0px;
+}
+#utils {
+  background-color: #757575;
+  border-radius: 10px 0px 0px 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 21px -1px rgba(0,0,0,0.4);
+  color: #ffffff;
+}
+#utils button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #757575;
+  transition: 0.3s;
+  border: none;
+  color: #ffffff;
+  border: solid 1px #666666;
+}
+#utils button:hover {
+  background-color: #444444;
+  box-shadow: inset 0px 0px 21px -9px rgba(0,0,0,0.4);
+}
+
+#open {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#open input {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  opacity: 0;
+  cursor: pointer;
+}
+#open #open-button {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: solid 1px #666666;
+  cursor: pointer;
+  transition: 0.3s;
+  pointer-events: none;
+}
+#open input:hover ~ #open-button {
+  background-color: #444444;
+  box-shadow: inset 0px 0px 21px -9px rgba(0,0,0,0.4);
+}
+#open #open-button:hover {
+  background-color: #444444;
+  box-shadow: inset 0px 0px 21px -9px rgba(0,0,0,0.4);
+}
+
+#model-wraper {
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  padding: 10px 10px;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: 0px 0px 21px -1px rgba(0,0,0,0.4);
+  color: #cccccc;
+  background-color: #666666;
+  font-weight: bold;
+  text-align: center;
+  font-family: arial;
+}
+#model-wraper i {
+  color: #ffffff;
+  margin: 10px 0px;
+}
+#model-border {
+  border: solid 1px #555555;
+  border-radius: 5px;
+}
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 10px;
+  user-select: none;
+  height: 25px;
+  line-height: 25px;
+}
+.checkbox-container input {
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 15px;
+  width: 15px;
+  background-color: #eeeeee;
+  border-radius: 50%;
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #cccccc;
+  box-shadow: inset 0px 0px 5px -1px rgba(0,0,0,0.4);
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #52bbeb;
+  box-shadow: inset 0px 0px 5px -1px rgba(0,0,0,0.4);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkbox-container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+}
+.checkbox-container .checkbox-label {
+  margin-left: 5px;
+  margin-right: 4px;
+}
+
+.hidden {
+  display: none;
+}
